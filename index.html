@@ -44,41 +44,54 @@
     .nbtn-fill:hover{background:var(--roxo2);transform:translateY(-1px)}
 
     /* ── HERO ── */
-    .hero{min-height:100vh;background:var(--dark);display:flex;align-items:center;padding:100px 2rem 60px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.2) 0%,transparent 65%);pointer-events:none}
-    .hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(109,40,217,.12) 0%,transparent 65%);pointer-events:none}
-    .hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
-    .hero-text h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;color:#fff;line-height:1.08;margin-bottom:1.4rem}
+    .hero{min-height:100vh;background:var(--dark);display:flex;align-items:center;padding:90px 2rem 60px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-180px;right:-180px;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.22) 0%,transparent 65%);pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-120px;left:-80px;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(109,40,217,.14) 0%,transparent 65%);pointer-events:none}
+    .hero-grid-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(124,58,237,.1) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+    .hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center;position:relative;z-index:1}
+    .hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.4);padding:7px 18px;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--light);margin-bottom:1.5rem}
+    .hero-pill .dot{width:7px;height:7px;background:#10b981;border-radius:50%;animation:blk 1.5s infinite}
+    @keyframes blk{0%,100%{opacity:1}50%{opacity:0}}
+    .hero-text h1{font-size:clamp(2.2rem,4.2vw,3.5rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-.5px}
     .hero-text h1 span{color:var(--light)}
-    .hero-text p{font-size:1.05rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2rem;max-width:480px}
-    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-    .hbp{display:inline-flex;align-items:center;gap:10px;background:var(--roxo);color:#fff;text-decoration:none;padding:16px 36px;border-radius:10px;font-weight:700;font-size:.95rem;transition:all .3s;box-shadow:0 8px 24px rgba(124,58,237,.4)}
-    .hbp:hover{background:var(--roxo2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,.55)}
-    .hbs{display:inline-flex;align-items:center;gap:10px;background:transparent;border:2px solid rgba(255,255,255,.25);color:#fff;text-decoration:none;padding:16px 36px;border-radius:10px;font-weight:600;font-size:.95rem;transition:all .3s}
-    .hbs:hover{border-color:var(--light);color:var(--light)}
-    .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap}
-    .hstat-num{font-size:1.8rem;font-weight:900;color:var(--light)}
-    .hstat-lbl{font-size:.72rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-    .hero-visual{position:relative}
-    .hero-card{background:linear-gradient(135deg,rgba(124,58,237,.25),rgba(109,40,217,.15));border:1px solid rgba(124,58,237,.35);border-radius:24px;padding:2.5rem;backdrop-filter:blur(10px);position:relative;overflow:hidden}
-    .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--roxo),var(--light))}
-    .hero-card-title{font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:.5rem}
-    .hero-card-sub{font-size:.88rem;color:rgba(255,255,255,.5);margin-bottom:1.8rem}
-    .hero-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.8rem}
-    .htag{background:rgba(124,58,237,.25);border:1px solid rgba(124,58,237,.4);color:var(--light);padding:6px 14px;border-radius:100px;font-size:.75rem;font-weight:600}
-    .hero-metrics{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-    .hmet{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1rem}
-    .hmet .lbl{font-size:.6rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px}
-    .hmet .val{font-size:1.3rem;font-weight:800;margin-top:3px}
-    .hero-badge-float{position:absolute;top:-16px;right:24px;background:#fff;border-radius:12px;padding:10px 16px;box-shadow:0 8px 24px rgba(0,0,0,.3);display:flex;align-items:center;gap:10px}
-    .hero-badge-float .ico{width:36px;height:36px;background:linear-gradient(135deg,var(--roxo),var(--roxo2));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem}
-    .hero-badge-float strong{display:block;font-size:.82rem;color:var(--text)}
-    .hero-badge-float span{font-size:.7rem;color:var(--muted)}
+    .hero-text p{font-size:1rem;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:2rem;max-width:460px}
+    .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center}
+    .hbp{display:inline-flex;align-items:center;gap:10px;background:var(--roxo);color:#fff;text-decoration:none;padding:15px 32px;border-radius:12px;font-weight:700;font-size:.92rem;transition:all .3s;box-shadow:0 8px 28px rgba(124,58,237,.45)}
+    .hbp:hover{background:var(--roxo2);transform:translateY(-3px);box-shadow:0 14px 36px rgba(124,58,237,.6)}
+    .hbs{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);text-decoration:none;padding:15px 28px;border-radius:12px;font-weight:600;font-size:.88rem;transition:all .3s}
+    .hbs:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}
+    .hero-stats{display:flex;gap:0;margin-top:2.8rem;border-top:1px solid rgba(255,255,255,.08);padding-top:2rem}
+    .hstat{text-align:center;flex:1;border-right:1px solid rgba(255,255,255,.08);padding:0 1rem}
+    .hstat:first-child{padding-left:0;text-align:left}
+    .hstat:last-child{border:none}
+    .hstat-num{font-size:2rem;font-weight:900;color:#fff}
+    .hstat-lbl{font-size:.68rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px}
+
+    /* ── CARD HERO ── */
+    .hero-visual{position:relative;padding-top:50px}
+    .hero-badge-float{position:absolute;top:0;right:20px;background:#fff;border-radius:14px;padding:12px 18px;box-shadow:0 12px 32px rgba(0,0,0,.35);display:flex;align-items:center;gap:12px;z-index:2;min-width:200px}
+    .hero-badge-float .ico{width:38px;height:38px;background:linear-gradient(135deg,#10b981,#059669);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0}
+    .hero-badge-float strong{display:block;font-size:.85rem;color:#111827;font-weight:800}
+    .hero-badge-float span{font-size:.72rem;color:#6b7280}
+    .hero-badge-float .pulse{width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse-g 2s infinite;margin-left:auto}
+    @keyframes pulse-g{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+    .hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(124,58,237,.3);border-radius:24px;padding:2rem;backdrop-filter:blur(12px);position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 0 1px rgba(124,58,237,.15)}
+    .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--roxo),var(--light),var(--roxo))}
+    .hcard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem}
+    .hcard-title{font-size:1.1rem;font-weight:800;color:#fff}
+    .hcard-badge{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#6ee7b7;font-size:.6rem;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:20px;text-transform:uppercase}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+    .htag{background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.35);color:var(--light);padding:5px 12px;border-radius:8px;font-size:.72rem;font-weight:600}
+    .hero-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .hmet{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.1rem}
+    .hmet .lbl{font-size:.58rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1.5px}
+    .hmet .val{font-size:1.25rem;font-weight:900;margin-top:4px}
 
     /* ── BARRA CTA ── */
-    .cta-bar{background:linear-gradient(90deg,var(--roxo) 0%,var(--roxo2) 100%);padding:1.2rem 2rem;display:flex;justify-content:center;gap:4rem;align-items:center;flex-wrap:wrap}
-    .cta-bar a{color:#fff;text-decoration:none;font-size:.95rem;font-weight:600;display:flex;align-items:center;gap:10px;transition:opacity .2s}
-    .cta-bar a:hover{opacity:.85}
+    .cta-bar{background:var(--dark);border-top:1px solid rgba(124,58,237,.2);border-bottom:1px solid rgba(124,58,237,.2);padding:1rem 2rem;display:flex;justify-content:center;gap:4rem;align-items:center;flex-wrap:wrap}
+    .cta-bar a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.88rem;font-weight:600;display:flex;align-items:center;gap:9px;transition:color .2s}
+    .cta-bar a:hover{color:#fff}
+    .cta-bar a .fab{font-size:1.1rem}
 
     /* ── SEÇÕES ── */
     section{padding:6rem 2rem;position:relative}
@@ -229,7 +242,7 @@
     .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:999;display:grid;grid-template-columns:1fr 1fr;height:56px}
     .sticky-bar a{display:flex;align-items:center;justify-content:center;gap:10px;font-size:.88rem;font-weight:700;text-decoration:none;transition:opacity .2s}
     .sticky-bar a:hover{opacity:.88}
-    .sb-insta{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff}
+    .sb-insta{background:var(--roxo2);color:#fff}
     .sb-wpp{background:#25d366;color:#fff}
 
     /* ── REVEAL ── */
@@ -264,28 +277,33 @@
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-grid-dots"></div>
   <div class="hero-inner">
     <div class="hero-text r">
-      <h1>O sistema da sua<br><span>empresa está aqui!</span></h1>
-      <p>PDV completo com emissão de notas, controle de estoque, financeiro, delivery e muito mais. Simplifique a gestão do seu negócio com o NexusPDV!</p>
+      <div class="hero-pill"><span class="dot"></span> SISTEMA EM OPERAÇÃO</div>
+      <h1>O software da sua<br><span>empresa está aqui!</span></h1>
+      <p>PDV completo com emissão de notas fiscais, controle de estoque, financeiro, delivery e muito mais. Gestão simples e eficiente para o seu negócio.</p>
       <div class="hero-btns">
         <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20conhecer%20o%20NexusPDV." target="_blank" class="hbp"><i class="fab fa-whatsapp"></i> Vamos conversar!</a>
-        <a href="#segmentos" class="hbs">Ver segmentos <i class="fas fa-arrow-down"></i></a>
+        <a href="#segmentos" class="hbs">Ver segmentos <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="hero-stats">
-        <div><div class="hstat-num">24h</div><div class="hstat-lbl">Suporte</div></div>
-        <div><div class="hstat-num">∞</div><div class="hstat-lbl">Atualizações</div></div>
-        <div><div class="hstat-num">+15</div><div class="hstat-lbl">Segmentos</div></div>
+        <div class="hstat"><div class="hstat-num">24h</div><div class="hstat-lbl">Suporte</div></div>
+        <div class="hstat"><div class="hstat-num">∞</div><div class="hstat-lbl">Atualizações</div></div>
+        <div class="hstat"><div class="hstat-num">+15</div><div class="hstat-lbl">Segmentos</div></div>
       </div>
     </div>
-    <div class="hero-visual r" style="position:relative;padding-top:24px">
+    <div class="hero-visual r">
       <div class="hero-badge-float">
         <div class="ico"><i class="fas fa-check"></i></div>
         <div><strong>Sistema ativo</strong><span>Funcionando agora</span></div>
+        <div class="pulse"></div>
       </div>
       <div class="hero-card">
-        <div class="hero-card-title">NexusPDV — Completo</div>
-        <div class="hero-card-sub">PDV + Delivery + Fiscal + IA</div>
+        <div class="hcard-header">
+          <div class="hcard-title">NexusPDV</div>
+          <div class="hcard-badge">● Online</div>
+        </div>
         <div class="hero-tags">
           <span class="htag">PDV Desktop</span>
           <span class="htag">NFC-e</span>
@@ -297,8 +315,8 @@
         <div class="hero-metrics">
           <div class="hmet"><div class="lbl">Vendas hoje</div><div class="val" style="color:#10b981">R$ 1.847</div></div>
           <div class="hmet"><div class="lbl">Pedidos</div><div class="val" style="color:#a78bfa">34</div></div>
-          <div class="hmet"><div class="lbl">Ticket médio</div><div class="val" style="color:#06b6d4">R$ 54,30</div></div>
-          <div class="hmet"><div class="lbl">Estoque OK</div><div class="val" style="color:#10b981">✓</div></div>
+          <div class="hmet"><div class="lbl">Ticket médio</div><div class="val" style="color:#06b6d4">R$ 54</div></div>
+          <div class="hmet"><div class="lbl">Estoque</div><div class="val" style="color:#10b981">✓ OK</div></div>
         </div>
       </div>
     </div>
