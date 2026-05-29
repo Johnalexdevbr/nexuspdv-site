@@ -91,15 +91,14 @@
 
     /* ── SEGMENTOS ── */
     .seg-sec{background:#f9fafb;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    .seg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-top:3.5rem}
-    .seg-card{border-radius:20px;overflow:hidden;position:relative;cursor:default;aspect-ratio:3/4;transition:all .35s}
-    .seg-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(124,58,237,.25)}
-    .seg-bg{position:absolute;inset:0;background-size:cover;background-position:center top}
-    .seg-bg{background:#1a1028}
-    .seg-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,4,30,.92) 0%,rgba(10,4,30,.25) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem}
-    .seg-icon-wrap{position:absolute;top:1rem;left:1rem;width:40px;height:40px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
-    .seg-name{font-size:.95rem;font-weight:800;color:#fff}
-    .seg-more{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:3px;display:flex;align-items:center;gap:4px}
+    .seg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:3.5rem}
+    .seg-card{border-radius:22px;overflow:hidden;position:relative;cursor:default;height:420px;transition:all .35s}
+    .seg-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(124,58,237,.3)}
+    .seg-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+    .seg-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,4,30,.96) 0%,rgba(10,4,30,.35) 40%,rgba(0,0,0,.05) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem}
+    .seg-icon-wrap{position:absolute;top:1.2rem;left:1.2rem;width:46px;height:46px;background:rgba(124,58,237,.8);backdrop-filter:blur(8px);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+    .seg-name{font-size:1.15rem;font-weight:800;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+    .seg-more{font-size:.78rem;color:rgba(255,255,255,.75);margin-top:6px;display:flex;align-items:center;gap:5px;font-weight:600}
 
     /* ── FEATURES ── */
     .feat-sec{background:#fff}
@@ -238,7 +237,9 @@
     .r.on{opacity:1;transform:translateY(0)}
 
     /* ── RESPONSIVE ── */
-    @media(max-width:980px){.hero-inner,.par-inner,.cont-inner{grid-template-columns:1fr}.hero-visual{display:none}.foot-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:1100px){.seg-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:980px){.hero-inner,.par-inner,.cont-inner{grid-template-columns:1fr}.hero-visual{display:none}.foot-grid{grid-template-columns:1fr 1fr}.seg-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.seg-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.nl{display:none}.seg-grid{grid-template-columns:repeat(2,1fr)}.foot-grid{grid-template-columns:1fr}.foot-bottom{flex-direction:column;text-align:center}}
   </style>
 </head>
@@ -318,18 +319,18 @@
       <h2 class="sh">Encontre o seu <span>segmento</span> e descubra o<br>que o NexusPDV pode fazer pelo seu negócio.</h2>
     </div>
     <div class="seg-grid">
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-store"></i></div><div class="seg-name">Varejo</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-utensils"></i></div><div class="seg-name">Restaurante</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-tools"></i></div><div class="seg-name">Oficina Mecânica</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-glasses"></i></div><div class="seg-name">Ótica</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-cut"></i></div><div class="seg-name">Salão de Beleza</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-pizza-slice"></i></div><div class="seg-name">Pizzaria</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-pills"></i></div><div class="seg-name">Farmácia</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-paw"></i></div><div class="seg-name">Pet Shop</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-bread-slice"></i></div><div class="seg-name">Padaria</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-tshirt"></i></div><div class="seg-name">Vestuário</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-leaf"></i></div><div class="seg-name">Hortifruti</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
-      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=400&h=520&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-wine-glass-alt"></i></div><div class="seg-name">Bar & Distribuidora</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-store"></i></div><div class="seg-name">Varejo</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-utensils"></i></div><div class="seg-name">Restaurante</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-tools"></i></div><div class="seg-name">Oficina Mecânica</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-glasses"></i></div><div class="seg-name">Ótica</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-cut"></i></div><div class="seg-name">Salão de Beleza</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-pizza-slice"></i></div><div class="seg-name">Pizzaria</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-pills"></i></div><div class="seg-name">Farmácia</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-paw"></i></div><div class="seg-name">Pet Shop</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-bread-slice"></i></div><div class="seg-name">Padaria</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-tshirt"></i></div><div class="seg-name">Vestuário</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-leaf"></i></div><div class="seg-name">Hortifruti</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="seg-card r"><div class="seg-bg" style="background-image:url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600w=400&h=520h=840&fit=crop')"></div><div class="seg-ov"><div class="seg-icon-wrap"><i class="fas fa-wine-glass-alt"></i></div><div class="seg-name">Bar & Distribuidora</div><div class="seg-more">Saiba mais <i class="fas fa-arrow-right"></i></div></div></div>
     </div>
   </div>
 </section>
