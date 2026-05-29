@@ -254,8 +254,48 @@
     .rr.on{opacity:1;transform:translateX(0)}
 
     @media(max-width:1100px){.seg-grid{grid-template-columns:repeat(3,1fr)}.sup-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:960px){.hero-inner,.par-inner,.cont-inner,.feat-layout{grid-template-columns:1fr}.hero-right{display:none}.faq-layout{grid-template-columns:1fr}.mod-grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:640px){.nl{display:none}.seg-grid{grid-template-columns:repeat(2,1fr)}.sup-grid{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr}.foot-bottom{flex-direction:column;text-align:center}}
+    @media(max-width:960px){
+      .hero-inner,.par-inner,.cont-inner,.feat-layout{grid-template-columns:1fr}
+      .hero-right{display:none}
+      .faq-layout{grid-template-columns:1fr}
+      .mod-grid{grid-template-columns:1fr}
+      .foot-grid{grid-template-columns:1fr 1fr}
+      .logo-wrap img,.logo-wrap-dark img{height:54px;width:54px}
+    }
+    @media(max-width:640px){
+      .nl{display:none}
+      .logo-wrap img,.logo-wrap-dark img{height:46px;width:46px}
+      .logo-name{font-size:.9rem}
+      .logo-name small{font-size:.52rem;letter-spacing:1.5px}
+      .nbtn-outline{display:none}
+      .hero{padding:80px 1.2rem 50px;min-height:auto}
+      .hero h1{font-size:clamp(1.9rem,8vw,2.8rem);letter-spacing:-.3px}
+      .hero p{font-size:.9rem}
+      .hero-btns{flex-direction:column;gap:.7rem}
+      .hero-btns a{width:100%;justify-content:center;text-align:center}
+      .seg-grid{grid-template-columns:repeat(2,1fr)}
+      .seg-card{height:280px}
+      .sup-grid{grid-template-columns:1fr 1fr}
+      .foot-grid{grid-template-columns:1fr}
+      .foot-bottom{flex-direction:column;text-align:center}
+      .sec{padding:3.5rem 1.2rem}
+      .sec-title{font-size:clamp(1.4rem,6vw,1.9rem)}
+      .feat-item{padding:1rem 1.2rem}
+      .mod-card{padding:1.4rem}
+      .par-visual{min-height:280px;padding:2rem 1.5rem}
+      .cont-inner{gap:2rem}
+      .faq-layout{gap:1rem}
+      .ctaf{padding:4rem 1.2rem}
+      .ctaf h2{font-size:clamp(1.4rem,6vw,2rem)}
+      footer{padding:3rem 1.2rem 1.5rem}
+      .foot-desc{max-width:100%}
+      .ni{padding:0 1rem}
+    }
+    @media(max-width:400px){
+      .seg-grid{grid-template-columns:1fr}
+      .seg-card{height:240px}
+      .sup-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
