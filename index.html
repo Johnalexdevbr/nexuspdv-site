@@ -4,503 +4,237 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexusPDV — Sistema de Gestão Completo para o seu Negócio</title>
-  <meta name="description" content="NexusPDV é o sistema de ponto de venda completo para varejo, restaurantes e qualquer negócio. Gestão inteligente com suporte humanizado e IA.">
+  <meta name="description" content="NexusPDV é o sistema de ponto de venda completo para varejo, restaurantes, oficinas, óticas e muito mais. Gestão inteligente com suporte humanizado e IA.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg: #04040a;
-      --bg2: #080812;
-      --bg3: #0f0f1c;
-      --azul: #2563eb;
-      --azul2: #3b82f6;
-      --ciano: #06b6d4;
-      --roxo: #7c3aed;
-      --verde: #10b981;
-      --text: #f0f0f8;
-      --muted: #8890a6;
-      --border: #1a1a2e;
+      --bg:     #05050f;
+      --bg2:    #09091a;
+      --bg3:    #0e0e22;
+      --card:   #0b0b1e;
+      --roxo:   #7c3aed;
+      --roxo2:  #9333ea;
+      --lilas:  #a78bfa;
+      --ciano:  #06b6d4;
+      --verde:  #10b981;
+      --text:   #f0f0f8;
+      --muted:  #8890a6;
+      --border: #1c1c35;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--azul); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: var(--roxo); border-radius: 10px; }
 
     /* ── PARTÍCULAS ── */
-    #particles {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; z-index: 0; overflow: hidden;
-    }
-    .particle {
-      position: absolute; border-radius: 50%;
-      animation: floatUp linear infinite; opacity: 0;
-    }
+    #particles { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden; }
+    .particle { position:absolute; border-radius:50%; animation:floatUp linear infinite; opacity:0; }
     @keyframes floatUp {
-      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 0.4; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+      0%   { transform:translateY(100vh) scale(0); opacity:0; }
+      10%  { opacity:1; }
+      90%  { opacity:0.35; }
+      100% { transform:translateY(-10vh) scale(1); opacity:0; }
     }
 
     /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; width: 100%;
-      padding: 1.2rem 0; z-index: 1000;
-      transition: all 0.4s ease;
-    }
-    nav.scrolled {
-      background: rgba(4, 4, 10, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .nav-logo {
-      font-size: 1.3rem; font-weight: 800;
-      text-decoration: none; color: var(--text);
-      display: flex; align-items: center; gap: 10px;
-      letter-spacing: -0.5px;
-    }
-    .logo-badge {
-      background: linear-gradient(135deg, var(--azul), var(--ciano));
-      padding: 4px 10px; border-radius: 6px;
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 1px; color: white;
-    }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none;
-      font-size: 0.85rem; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 1px;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--azul2); }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--azul), var(--ciano));
-      color: white !important; padding: 10px 22px;
-      border-radius: 8px; font-weight: 700 !important;
-      transition: all 0.3s !important;
-    }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.4) !important; }
+    nav { position:fixed; top:0; width:100%; padding:1.2rem 0; z-index:1000; transition:all .4s; }
+    nav.scrolled { background:rgba(5,5,15,.96); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+    .nav-inner { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; }
+    .nav-logo { font-size:1.3rem; font-weight:800; text-decoration:none; color:var(--text); display:flex; align-items:center; gap:10px; letter-spacing:-.5px; }
+    .logo-badge { background:linear-gradient(135deg,var(--roxo),var(--ciano)); padding:4px 10px; border-radius:6px; font-size:.7rem; font-weight:700; letter-spacing:1px; color:#fff; }
+    .nav-links { display:flex; gap:2rem; align-items:center; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:.85rem; font-weight:500; text-transform:uppercase; letter-spacing:1px; transition:color .3s; }
+    .nav-links a:hover { color:var(--lilas); }
+    .nav-cta { background:linear-gradient(135deg,var(--roxo),var(--ciano)); color:#fff !important; padding:10px 22px; border-radius:8px; font-weight:700 !important; transition:all .3s !important; }
+    .nav-cta:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(124,58,237,.4) !important; }
 
     /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; padding: 120px 2rem 80px;
-      overflow: hidden;
-    }
-    .hero-bg-glow {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, rgba(6,182,212,0.06) 40%, transparent 70%);
-      border-radius: 50%;
-      animation: pulseGlow 6s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes pulseGlow {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-    .hero-content {
-      text-align: center; z-index: 10;
-      max-width: 900px; margin: 0 auto;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(37,99,235,0.1);
-      border: 1px solid rgba(37,99,235,0.3);
-      padding: 8px 20px; border-radius: 100px;
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 2px; color: var(--azul2);
-      margin-bottom: 2rem;
-      animation: fadeDown 0.8s ease both;
-    }
-    @keyframes fadeDown { from { opacity:0; transform:translateY(-20px);} to { opacity:1; transform:translateY(0);} }
-    @keyframes fadeUp { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
-
-    .hero-badge span { width: 6px; height: 6px; background: var(--verde); border-radius: 50%; animation: blink 1.5s infinite; }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-
-    .hero-title {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 900; line-height: 1.05;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.8s 0.2s ease both;
-    }
-    .hero-title .highlight {
-      background: linear-gradient(135deg, #fff 20%, var(--azul2) 60%, var(--ciano) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-size: 200% auto;
-      animation: shimmer 4s linear infinite;
-    }
-    @keyframes shimmer { to { background-position: 200% center; } }
-
-    .hero-sub {
-      font-size: 1.15rem; color: var(--muted);
-      max-width: 600px; margin: 0 auto 2.5rem;
-      font-weight: 300; line-height: 1.8;
-      animation: fadeUp 0.8s 0.4s ease both;
-    }
-    .hero-btns {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      animation: fadeUp 0.8s 0.6s ease both;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: linear-gradient(135deg, var(--azul), var(--ciano));
-      color: white; text-decoration: none;
-      padding: 18px 40px; border-radius: 10px;
-      font-weight: 700; font-size: 1rem;
-      transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .btn-primary::before {
-      content: ''; position: absolute; top:0; left:-100%;
-      width:100%; height:100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      transition: 0.5s;
-    }
-    .btn-primary:hover::before { left: 100%; }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37,99,235,0.5); }
-
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--text); text-decoration: none;
-      padding: 18px 40px; border-radius: 10px;
-      font-weight: 600; font-size: 1rem;
-      transition: all 0.3s;
-    }
-    .btn-secondary:hover { border-color: var(--azul2); color: var(--azul2); transform: translateY(-3px); }
-
-    .hero-stats {
-      display: flex; justify-content: center; gap: 3rem;
-      margin-top: 4rem; flex-wrap: wrap;
-      animation: fadeUp 0.8s 0.8s ease both;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-size: 2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--azul2), var(--ciano));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+    .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; padding:120px 2rem 80px; overflow:hidden; }
+    .hero-bg-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:900px; height:900px; background:radial-gradient(circle,rgba(124,58,237,.13) 0%,rgba(6,182,212,.05) 45%,transparent 70%); border-radius:50%; animation:pulseGlow 7s ease-in-out infinite; pointer-events:none; }
+    @keyframes pulseGlow { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8;} 50%{transform:translate(-50%,-50%) scale(1.12);opacity:1;} }
+    .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(124,58,237,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.04) 1px,transparent 1px); background-size:60px 60px; pointer-events:none; }
+    .hero-content { text-align:center; z-index:10; max-width:920px; margin:0 auto; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(124,58,237,.12); border:1px solid rgba(124,58,237,.35); padding:8px 20px; border-radius:100px; font-size:.75rem; font-weight:600; letter-spacing:2px; color:var(--lilas); margin-bottom:2rem; animation:fadeDown .8s ease both; }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);} }
+    .hero-badge span { width:7px; height:7px; background:var(--verde); border-radius:50%; animation:blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;}50%{opacity:0;} }
+    .hero-title { font-size:clamp(2.8rem,7vw,5.5rem); font-weight:900; line-height:1.05; margin-bottom:1.5rem; animation:fadeUp .8s .2s ease both; }
+    .hero-title .highlight { background:linear-gradient(135deg,#fff 20%,var(--lilas) 55%,var(--ciano) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-size:200% auto; animation:shimmer 4s linear infinite; }
+    @keyframes shimmer { to{background-position:200% center;} }
+    .hero-sub { font-size:1.15rem; color:var(--muted); max-width:620px; margin:0 auto 2.5rem; font-weight:300; line-height:1.8; animation:fadeUp .8s .4s ease both; }
+    .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; animation:fadeUp .8s .6s ease both; }
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,var(--roxo),var(--ciano)); color:#fff; text-decoration:none; padding:18px 40px; border-radius:10px; font-weight:700; font-size:1rem; transition:all .3s; position:relative; overflow:hidden; }
+    .btn-primary::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent); transition:.5s; }
+    .btn-primary:hover::before { left:100%; }
+    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 15px 35px rgba(124,58,237,.5); }
+    .btn-secondary { display:inline-flex; align-items:center; gap:10px; background:transparent; border:1px solid rgba(255,255,255,.15); color:var(--text); text-decoration:none; padding:18px 40px; border-radius:10px; font-weight:600; font-size:1rem; transition:all .3s; }
+    .btn-secondary:hover { border-color:var(--lilas); color:var(--lilas); transform:translateY(-3px); }
+    .hero-stats { display:flex; justify-content:center; gap:3rem; margin-top:4rem; flex-wrap:wrap; animation:fadeUp .8s .8s ease both; }
+    .stat { text-align:center; }
+    .stat-num { font-size:2rem; font-weight:800; background:linear-gradient(135deg,var(--lilas),var(--ciano)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .stat-label { font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
 
     /* ── SEÇÕES ── */
-    section { padding: 6rem 2rem; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-tag {
-      display: inline-block;
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--azul2); margin-bottom: 1rem;
-    }
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800; line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 550px; }
+    section { padding:6rem 2rem; }
+    .container { max-width:1200px; margin:0 auto; }
+    .section-tag { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--lilas); margin-bottom:1rem; }
+    .section-title { font-size:clamp(2rem,4vw,3rem); font-weight:800; line-height:1.1; margin-bottom:1rem; }
+    .section-sub { color:var(--muted); font-size:1.05rem; max-width:580px; }
 
-    /* ── LOGOS SEGMENTOS ── */
-    .segments {
-      background: var(--bg2);
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .segments-label {
-      text-align: center; color: var(--muted);
-      font-size: 0.75rem; letter-spacing: 3px;
-      text-transform: uppercase; margin-bottom: 2rem;
-    }
-    .segments-grid {
-      display: flex; justify-content: center;
-      align-items: center; gap: 3rem; flex-wrap: wrap;
-    }
-    .segment-item {
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      color: var(--muted); font-size: 0.8rem; font-weight: 500;
-      transition: color 0.3s;
-    }
-    .segment-item:hover { color: var(--azul2); }
-    .segment-item i { font-size: 1.8rem; }
+    /* ── SEGMENTOS ── */
+    .segments-section { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:5rem 2rem; }
+    .segments-header { text-align:center; margin-bottom:3.5rem; }
+    .segments-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; }
+    .seg-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1rem; text-align:center; transition:all .3s; cursor:default; }
+    .seg-card:hover { border-color:rgba(124,58,237,.45); background:rgba(124,58,237,.07); transform:translateY(-4px); box-shadow:0 12px 32px rgba(124,58,237,.15); }
+    .seg-card:hover .seg-icon { background:rgba(124,58,237,.2); color:var(--lilas); }
+    .seg-icon { width:52px; height:52px; background:rgba(255,255,255,.05); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--muted); margin:0 auto 1rem; transition:all .3s; }
+    .seg-name { font-size:.8rem; font-weight:700; color:var(--text); }
+    .seg-desc { font-size:.68rem; color:var(--muted); margin-top:4px; line-height:1.4; }
 
     /* ── FEATURES ── */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem; margin-top: 4rem;
-    }
-    .feature-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px; padding: 2rem;
-      transition: all 0.4s;
-      position: relative; overflow: hidden;
-    }
-    .feature-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--azul), var(--ciano));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s;
-    }
-    .feature-card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-5px); }
-    .feature-card:hover::before { transform: scaleX(1); }
-    .feature-icon {
-      width: 50px; height: 50px;
-      background: rgba(37,99,235,0.1);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; margin-bottom: 1.2rem;
-      color: var(--azul2);
-    }
-    .feature-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; }
-    .feature-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; margin-top:4rem; }
+    .feature-card { background:var(--bg2); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:all .4s; position:relative; overflow:hidden; }
+    .feature-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--roxo),var(--ciano)); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+    .feature-card:hover { border-color:rgba(124,58,237,.3); transform:translateY(-5px); }
+    .feature-card:hover::before { transform:scaleX(1); }
+    .feature-icon { width:50px; height:50px; background:rgba(124,58,237,.12); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1.2rem; color:var(--lilas); }
+    .feature-card h3 { font-size:1.05rem; font-weight:700; margin-bottom:.6rem; }
+    .feature-card p { color:var(--muted); font-size:.9rem; line-height:1.7; }
 
-    /* ── DEMO VISUAL ── */
-    .demo-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .demo-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-    }
-    .demo-screen {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-    }
-    .demo-bar {
-      background: #0d0d1a; padding: 12px 16px;
-      display: flex; align-items: center; gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .demo-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .demo-body { padding: 1.5rem; }
-    .demo-row {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px; border-radius: 10px;
-      margin-bottom: 8px; background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-    }
-    .demo-row-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem; flex-shrink: 0;
-    }
-    .demo-row-text { flex: 1; }
-    .demo-row-title { font-size: 0.8rem; font-weight: 600; }
-    .demo-row-sub { font-size: 0.7rem; color: var(--muted); }
-    .demo-row-val { font-size: 0.85rem; font-weight: 700; }
-    .demo-metric {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 8px; margin-top: 12px;
-    }
-    .metric-box {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      border-radius: 10px; padding: 12px;
-    }
-    .metric-box .label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    .metric-box .value { font-size: 1.2rem; font-weight: 800; margin-top: 4px; }
-    .demo-info h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; }
-    .demo-info p { color: var(--muted); margin-bottom: 2rem; line-height: 1.8; }
-    .demo-list { list-style: none; }
-    .demo-list li {
-      display: flex; align-items: center; gap: 10px;
-      padding: 8px 0; color: var(--muted); font-size: 0.9rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .demo-list li:last-child { border: none; }
-    .demo-list li i { color: var(--verde); font-size: 0.8rem; }
+    /* ── MÓDULOS ESPECIAIS ── */
+    .modules-section { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .modules-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:3.5rem; }
+    .module-card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:2rem; position:relative; overflow:hidden; transition:all .35s; }
+    .module-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+    .module-card.mc-oficina::after { background:linear-gradient(90deg,#f59e0b,#ef4444); }
+    .module-card.mc-otica::after   { background:linear-gradient(90deg,#06b6d4,#3b82f6); }
+    .module-card.mc-delivery::after{ background:linear-gradient(90deg,#10b981,#06b6d4); }
+    .module-card.mc-fiscal::after  { background:linear-gradient(90deg,#7c3aed,#a78bfa); }
+    .module-card:hover { transform:translateY(-5px); border-color:rgba(124,58,237,.3); box-shadow:0 20px 50px rgba(0,0,0,.4); }
+    .module-badge { display:inline-block; font-size:.6rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-bottom:1.2rem; }
+    .module-card.mc-oficina .module-badge { background:rgba(245,158,11,.12); color:#fbbf24; border:1px solid rgba(245,158,11,.25); }
+    .module-card.mc-otica   .module-badge { background:rgba(6,182,212,.12);  color:#67e8f9; border:1px solid rgba(6,182,212,.25); }
+    .module-card.mc-delivery .module-badge{ background:rgba(16,185,129,.12); color:#6ee7b7; border:1px solid rgba(16,185,129,.25); }
+    .module-card.mc-fiscal  .module-badge { background:rgba(124,58,237,.12); color:#c4b5fd; border:1px solid rgba(124,58,237,.25); }
+    .module-card h3 { font-size:1.1rem; font-weight:800; margin-bottom:.6rem; }
+    .module-card p { color:var(--muted); font-size:.88rem; line-height:1.7; margin-bottom:1rem; }
+    .module-list { list-style:none; }
+    .module-list li { font-size:.8rem; color:var(--muted); padding:5px 0; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,.04); }
+    .module-list li:last-child { border:none; }
+    .module-list li i { font-size:.7rem; color:var(--verde); flex-shrink:0; }
 
-    /* ── PLANO ── */
-    .pricing-card {
-      max-width: 520px; margin: 4rem auto 0;
-      background: var(--bg2);
-      border: 1px solid rgba(37,99,235,0.3);
-      border-radius: 24px; padding: 3rem;
-      position: relative; overflow: hidden;
-      box-shadow: 0 0 60px rgba(37,99,235,0.15);
-    }
-    .pricing-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--azul), var(--ciano));
-    }
-    .pricing-badge {
-      display: inline-block;
-      background: rgba(16,185,129,0.15);
-      border: 1px solid rgba(16,185,129,0.3);
-      color: var(--verde); padding: 5px 14px;
-      border-radius: 100px; font-size: 0.7rem;
-      font-weight: 700; letter-spacing: 2px;
-      margin-bottom: 1.5rem;
-    }
-    .pricing-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
-    .pricing-price {
-      font-size: 3.5rem; font-weight: 900; line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    .pricing-price span { font-size: 1.2rem; font-weight: 500; color: var(--muted); }
-    .pricing-per { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
-    .pricing-divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-    .pricing-features { list-style: none; margin-bottom: 2rem; }
-    .pricing-features li {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 10px 0; font-size: 0.9rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .pricing-features li:last-child { border: none; }
-    .pricing-features li i { color: var(--verde); margin-top: 3px; flex-shrink: 0; }
-    .btn-contratar {
-      display: block; text-align: center;
-      background: linear-gradient(135deg, var(--azul), var(--ciano));
-      color: white; text-decoration: none;
-      padding: 18px; border-radius: 12px;
-      font-weight: 700; font-size: 1.05rem;
-      transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .btn-contratar::before {
-      content: ''; position: absolute; top:0; left:-100%;
-      width:100%; height:100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      transition: 0.5s;
-    }
-    .btn-contratar:hover::before { left: 100%; }
-    .btn-contratar:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37,99,235,0.5); }
-    .pricing-note { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 1rem; }
+    /* ── DEMO ── */
+    .demo-section { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .demo-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .demo-screen { background:var(--bg3); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+    .demo-bar { background:#0a0a1c; padding:12px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border); }
+    .demo-dot { width:10px; height:10px; border-radius:50%; }
+    .demo-body { padding:1.5rem; }
+    .demo-row { display:flex; align-items:center; gap:12px; padding:12px; border-radius:10px; margin-bottom:8px; background:rgba(255,255,255,.02); border:1px solid var(--border); }
+    .demo-row-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:.9rem; flex-shrink:0; }
+    .demo-row-text { flex:1; }
+    .demo-row-title { font-size:.8rem; font-weight:600; }
+    .demo-row-sub { font-size:.7rem; color:var(--muted); }
+    .demo-row-val { font-size:.85rem; font-weight:700; }
+    .demo-metric { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+    .metric-box { background:rgba(255,255,255,.02); border:1px solid var(--border); border-radius:10px; padding:12px; }
+    .metric-box .label { font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+    .metric-box .value { font-size:1.2rem; font-weight:800; margin-top:4px; }
+    .demo-info h2 { font-size:2.2rem; font-weight:800; margin-bottom:1rem; }
+    .demo-info p { color:var(--muted); margin-bottom:2rem; line-height:1.8; }
+    .demo-list { list-style:none; }
+    .demo-list li { display:flex; align-items:center; gap:10px; padding:8px 0; color:var(--muted); font-size:.9rem; border-bottom:1px solid var(--border); }
+    .demo-list li:last-child { border:none; }
+    .demo-list li i { color:var(--verde); font-size:.8rem; }
+
+    /* ── CONTATO / PROPOSTA ── */
+    .contact-section { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .contact-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .contact-info h2 { font-size:2.4rem; font-weight:900; margin-bottom:1rem; line-height:1.1; }
+    .contact-info p { color:var(--muted); font-size:1rem; line-height:1.8; margin-bottom:2rem; }
+    .contact-items { display:flex; flex-direction:column; gap:1rem; }
+    .contact-item { display:flex; align-items:flex-start; gap:14px; padding:1rem; background:var(--card); border:1px solid var(--border); border-radius:12px; transition:all .3s; }
+    .contact-item:hover { border-color:rgba(124,58,237,.3); }
+    .contact-item-icon { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .contact-item-text strong { display:block; font-size:.85rem; font-weight:700; margin-bottom:2px; }
+    .contact-item-text span { font-size:.78rem; color:var(--muted); }
+    .contact-form-box { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:2.5rem; }
+    .contact-form-box h3 { font-size:1.3rem; font-weight:800; margin-bottom:.5rem; }
+    .contact-form-box p { color:var(--muted); font-size:.88rem; margin-bottom:2rem; }
+    .form-group { margin-bottom:1.2rem; }
+    .form-group label { display:block; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:6px; }
+    .form-group input, .form-group select, .form-group textarea { width:100%; background:var(--bg2); border:1.5px solid var(--border); border-radius:10px; padding:12px 14px; color:var(--text); font-size:.88rem; font-family:'Inter',sans-serif; outline:none; transition:all .25s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--roxo); box-shadow:0 0 0 3px rgba(124,58,237,.15); }
+    .form-group select option { background:var(--bg2); }
+    .form-group textarea { resize:vertical; min-height:90px; }
+    .btn-enviar { width:100%; background:linear-gradient(135deg,var(--roxo),var(--ciano)); color:#fff; border:none; border-radius:10px; padding:15px; font-size:.95rem; font-weight:700; cursor:pointer; transition:all .3s; font-family:'Inter',sans-serif; margin-top:.5rem; }
+    .btn-enviar:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(124,58,237,.45); }
 
     /* ── SUPORTE ── */
-    .support-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem; margin-top: 4rem;
-    }
-    .support-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 16px; padding: 2rem; text-align: center;
-      transition: all 0.3s;
-    }
-    .support-card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-4px); }
-    .support-card i { font-size: 2rem; margin-bottom: 1rem; color: var(--azul2); }
-    .support-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .support-card p { color: var(--muted); font-size: 0.85rem; }
+    .support-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:4rem; }
+    .support-card { background:var(--bg2); border:1px solid var(--border); border-radius:16px; padding:2rem; text-align:center; transition:all .3s; }
+    .support-card:hover { border-color:rgba(124,58,237,.3); transform:translateY(-4px); }
+    .support-card i { font-size:2rem; margin-bottom:1rem; color:var(--lilas); }
+    .support-card h3 { font-size:1rem; font-weight:700; margin-bottom:.5rem; }
+    .support-card p { color:var(--muted); font-size:.85rem; }
 
     /* ── FAQ ── */
-    .faq-list { margin-top: 3rem; max-width: 750px; margin-left: auto; margin-right: auto; }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 0;
-    }
-    .faq-q {
-      display: flex; justify-content: space-between; align-items: center;
-      cursor: pointer; font-weight: 600; font-size: 1rem;
-      user-select: none;
-    }
-    .faq-q i { color: var(--azul2); transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
-    .faq-item.open .faq-q i { transform: rotate(45deg); }
-    .faq-a {
-      color: var(--muted); font-size: 0.9rem; line-height: 1.8;
-      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
-    }
-    .faq-item.open .faq-a { max-height: 200px; padding-top: 1rem; }
+    .faq-list { margin-top:3rem; max-width:750px; margin-left:auto; margin-right:auto; }
+    .faq-item { border-bottom:1px solid var(--border); padding:1.5rem 0; }
+    .faq-q { display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:1rem; user-select:none; }
+    .faq-q i { color:var(--lilas); transition:transform .3s; flex-shrink:0; margin-left:1rem; }
+    .faq-item.open .faq-q i { transform:rotate(45deg); }
+    .faq-a { color:var(--muted); font-size:.9rem; line-height:1.8; max-height:0; overflow:hidden; transition:max-height .4s ease,padding .3s; }
+    .faq-item.open .faq-a { max-height:220px; padding-top:1rem; }
 
     /* ── CTA FINAL ── */
-    .cta-section {
-      text-align: center;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 7rem 2rem;
-    }
-    .cta-section h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; margin-bottom: 1rem; }
-    .cta-section p { color: var(--muted); margin-bottom: 2.5rem; font-size: 1.05rem; }
+    .cta-section { text-align:center; background:var(--bg2); border-top:1px solid var(--border); padding:7rem 2rem; position:relative; overflow:hidden; }
+    .cta-section::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; background:radial-gradient(circle,rgba(124,58,237,.12),transparent 70%); border-radius:50%; pointer-events:none; }
+    .cta-section h2 { font-size:clamp(2rem,4vw,3.2rem); font-weight:900; margin-bottom:1rem; position:relative; z-index:1; }
+    .cta-section p { color:var(--muted); margin-bottom:2.5rem; font-size:1.05rem; position:relative; z-index:1; }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--bg); border-top: 1px solid var(--border);
-      padding: 3rem 2rem; text-align: center;
-    }
-    .footer-logo { font-size: 1.2rem; font-weight: 800; margin-bottom: 1rem; }
-    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
-    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--azul2); }
-    .footer-copy { color: var(--muted); font-size: 0.75rem; }
+    footer { background:var(--bg); border-top:1px solid var(--border); padding:3rem 2rem; text-align:center; }
+    .footer-logo { font-size:1.2rem; font-weight:800; margin-bottom:1rem; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .footer-links a { color:var(--muted); text-decoration:none; font-size:.85rem; transition:color .3s; }
+    .footer-links a:hover { color:var(--lilas); }
+    .footer-copy { color:var(--muted); font-size:.75rem; }
 
     /* ── WHATSAPP FLUTUANTE ── */
-    .whatsapp-float {
-      position: fixed; bottom: 30px; right: 30px; z-index: 999;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: #25d366;
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; color: white; font-size: 1.6rem;
-      box-shadow: 0 8px 25px rgba(37,211,102,0.5);
-      animation: floatBtn 3s ease-in-out infinite;
-    }
-    @keyframes floatBtn {
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-8px); }
-    }
+    .whatsapp-float { position:fixed; bottom:30px; right:30px; z-index:999; width:60px; height:60px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; text-decoration:none; color:#fff; font-size:1.6rem; box-shadow:0 8px 25px rgba(37,211,102,.5); animation:floatBtn 3s ease-in-out infinite; }
+    @keyframes floatBtn { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal { opacity:0; transform:translateY(40px); transition:all .8s ease; }
+    .reveal.active { opacity:1; transform:translateY(0); }
 
     /* ── RESPONSIVO ── */
-    @media (max-width: 900px) {
-      .demo-inner { grid-template-columns: 1fr; }
-      .demo-screen { display: none; }
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero-stats { gap: 1.5rem; }
-      .btn-primary, .btn-secondary { padding: 15px 28px; font-size: 0.9rem; }
-      .pricing-card { padding: 2rem 1.5rem; }
-    }
+    @media(max-width:1000px) { .demo-inner,.contact-inner { grid-template-columns:1fr; } .demo-screen { display:none; } }
+    @media(max-width:600px) { .nav-links { display:none; } .hero-stats { gap:1.5rem; } .btn-primary,.btn-secondary { padding:15px 28px; font-size:.9rem; } .segments-grid { grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); } }
   </style>
 </head>
 <body>
 
-<!-- PARTÍCULAS -->
 <div id="particles"></div>
 
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      Nexus<span class="logo-badge">PDV</span>
-    </a>
+    <a href="#" class="nav-logo">Nexus<span class="logo-badge">PDV</span></a>
     <div class="nav-links">
       <a href="#funcionalidades">Funcionalidades</a>
-      <a href="#plano">Plano</a>
+      <a href="#segmentos">Segmentos</a>
+      <a href="#modulos">Módulos</a>
       <a href="#suporte">Suporte</a>
       <a href="#faq">FAQ</a>
-      <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20contratar%20o%20NexusPDV." target="_blank" class="nav-cta">Contratar Agora</a>
+      <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20conhecer%20o%20NexusPDV." target="_blank" class="nav-cta">Falar com Especialista</a>
     </div>
   </div>
 </nav>
@@ -510,56 +244,51 @@
   <div class="hero-bg-glow"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <span></span> SISTEMA EM OPERAÇÃO
-    </div>
-    <h1 class="hero-title">
-      O PDV que<br><span class="highlight">transforma</span><br>seu negócio
-    </h1>
-    <p class="hero-sub">
-      Gestão completa de vendas, estoque, clientes e relatórios. Para varejo, restaurantes e qualquer tipo de negócio — com suporte humanizado e IA incluídos.
-    </p>
+    <div class="hero-badge"><span></span> SISTEMA EM OPERAÇÃO</div>
+    <h1 class="hero-title">O PDV que<br><span class="highlight">transforma</span><br>seu negócio</h1>
+    <p class="hero-sub">Gestão completa de vendas, estoque, clientes e relatórios. Para varejo, restaurantes, oficinas e muito mais — com suporte humanizado e IA incluídos.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20contratar%20o%20NexusPDV." target="_blank" class="btn-primary">
-        <i class="fab fa-whatsapp"></i> Contratar Agora
+      <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20conhecer%20o%20NexusPDV." target="_blank" class="btn-primary">
+        <i class="fab fa-whatsapp"></i> Falar com Especialista
       </a>
-      <a href="#funcionalidades" class="btn-secondary">
-        Ver Funcionalidades <i class="fas fa-arrow-down"></i>
-      </a>
+      <a href="#funcionalidades" class="btn-secondary">Ver Funcionalidades <i class="fas fa-arrow-down"></i></a>
     </div>
     <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">24h</div>
-        <div class="stat-label">Suporte disponível</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Atualizações incluídas</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">+10</div>
-        <div class="stat-label">Segmentos atendidos</div>
-      </div>
+      <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Suporte disponível</div></div>
+      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Atualizações incluídas</div></div>
+      <div class="stat"><div class="stat-num">+15</div><div class="stat-label">Segmentos atendidos</div></div>
     </div>
   </div>
 </section>
 
 <!-- SEGMENTOS -->
-<div class="segments">
+<section class="segments-section" id="segmentos">
   <div class="container">
-    <p class="segments-label">Funciona para qualquer tipo de negócio</p>
+    <div class="segments-header reveal">
+      <p class="section-tag">Segmentos</p>
+      <h2 class="section-title">Feito para o seu tipo de negócio</h2>
+      <p class="section-sub" style="margin:0 auto;">Do varejo à oficina mecânica, o NexusPDV se adapta à sua operação com módulos específicos para cada segmento.</p>
+    </div>
     <div class="segments-grid">
-      <div class="segment-item"><i class="fas fa-store"></i>Varejo</div>
-      <div class="segment-item"><i class="fas fa-utensils"></i>Restaurante</div>
-      <div class="segment-item"><i class="fas fa-hamburger"></i>Lanchonete</div>
-      <div class="segment-item"><i class="fas fa-cut"></i>Salão de Beleza</div>
-      <div class="segment-item"><i class="fas fa-pills"></i>Farmácia</div>
-      <div class="segment-item"><i class="fas fa-tshirt"></i>Vestuário</div>
-      <div class="segment-item"><i class="fas fa-paw"></i>Pet Shop</div>
-      <div class="segment-item"><i class="fas fa-laptop"></i>Eletrônicos</div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-store"></i></div><div class="seg-name">Varejo</div><div class="seg-desc">Lojas em geral</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-utensils"></i></div><div class="seg-name">Restaurante</div><div class="seg-desc">Comanda & delivery</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-hamburger"></i></div><div class="seg-name">Lanchonete</div><div class="seg-desc">Fast food & bar</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-pizza-slice"></i></div><div class="seg-name">Pizzaria</div><div class="seg-desc">Delivery & balcão</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-cut"></i></div><div class="seg-name">Salão de Beleza</div><div class="seg-desc">Agendamento incluso</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-pills"></i></div><div class="seg-name">Farmácia</div><div class="seg-desc">Estoque controlado</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-tshirt"></i></div><div class="seg-name">Vestuário</div><div class="seg-desc">Grade & tamanhos</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-paw"></i></div><div class="seg-name">Pet Shop</div><div class="seg-desc">Produtos & serviços</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-tools"></i></div><div class="seg-name">Oficina Mecânica</div><div class="seg-desc">Módulo OS completo</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-glasses"></i></div><div class="seg-name">Ótica</div><div class="seg-desc">Receitas & lentes</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-bread-slice"></i></div><div class="seg-name">Padaria</div><div class="seg-desc">Produção & caixa</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-leaf"></i></div><div class="seg-name">Hortifruti</div><div class="seg-desc">Pesagem & balança</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-wine-glass-alt"></i></div><div class="seg-name">Bar & Distribuidora</div><div class="seg-desc">Consumo & estoque</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-laptop"></i></div><div class="seg-name">Eletrônicos</div><div class="seg-desc">Assistência técnica</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-fish"></i></div><div class="seg-name">Peixaria & Açougue</div><div class="seg-desc">Cortes & pesagem</div></div>
+      <div class="seg-card reveal"><div class="seg-icon"><i class="fas fa-church"></i></div><div class="seg-name">Outros</div><div class="seg-desc">Qualquer negócio</div></div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- FUNCIONALIDADES -->
 <section id="funcionalidades">
@@ -570,50 +299,75 @@
       <p class="section-sub">Do cadastro de produtos ao fechamento de caixa, o NexusPDV cobre cada etapa da sua operação.</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-cash-register"></i></div>
-        <h3>Ponto de Venda Rápido</h3>
-        <p>Interface otimizada para agilidade no caixa. Vendas por código de barras, nome ou categoria em segundos.</p>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-cash-register"></i></div><h3>Ponto de Venda Rápido</h3><p>Interface otimizada para agilidade no caixa. Vendas por código de barras, nome ou categoria em segundos.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-boxes"></i></div><h3>Controle de Estoque</h3><p>Gerencie entradas, saídas e alertas de estoque mínimo. Nunca mais fique sem produto na hora errada.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Relatórios e Dashboard</h3><p>Visualize vendas do dia, semana e mês. Saiba quais produtos mais vendem e tome decisões com dados reais.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-users"></i></div><h3>Gestão de Clientes</h3><p>Cadastro completo com histórico de compras, controle de fiado e programa de fidelidade integrado.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-credit-card"></i></div><h3>Múltiplas Formas de Pagamento</h3><p>Dinheiro, cartão, PIX, fiado ou parcelado. Controle total de recebimentos sem complicação.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-robot"></i></div><h3>Inteligência Artificial</h3><p>IA integrada para sugestões de reposição, análise de tendências e respostas automáticas para dúvidas do sistema.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-print"></i></div><h3>Impressão de Cupom</h3><p>Emissão de cupom não fiscal e NFC-e. Compatível com as principais impressoras térmicas do mercado.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-cloud"></i></div><h3>Backup em Nuvem</h3><p>Seus dados salvos automaticamente. Acesse históricos e relatórios de qualquer lugar, a qualquer hora.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-sync-alt"></i></div><h3>Atualizações Gratuitas</h3><p>Novas funcionalidades entregues automaticamente sem custo adicional. Seu sistema sempre evolui com você.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MÓDULOS ESPECIAIS -->
+<section class="modules-section" id="modulos">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <p class="section-tag">Módulos Especializados</p>
+      <h2 class="section-title">Soluções completas para<br>cada tipo de operação</h2>
+      <p class="section-sub" style="margin:0 auto;">Módulos dedicados que vão muito além de um PDV comum — desenvolvidos para as necessidades reais do seu segmento.</p>
+    </div>
+    <div class="modules-grid">
+      <div class="module-card mc-oficina reveal">
+        <div class="module-badge">Oficina Mecânica</div>
+        <h3>Gestão de Oficina Completa</h3>
+        <p>Controle total de ordens de serviço, histórico de veículos, peças e técnicos em uma única tela.</p>
+        <ul class="module-list">
+          <li><i class="fas fa-check"></i> Ordem de serviço com status em tempo real</li>
+          <li><i class="fas fa-check"></i> Cadastro e histórico de veículos por placa</li>
+          <li><i class="fas fa-check"></i> Controle de peças e estoque da oficina</li>
+          <li><i class="fas fa-check"></i> Checklist de vistoria e laudo de entrada</li>
+          <li><i class="fas fa-check"></i> Consulta de placa automática via API</li>
+        </ul>
       </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-boxes"></i></div>
-        <h3>Controle de Estoque</h3>
-        <p>Gerencie entradas, saídas e alertas de estoque mínimo. Nunca mais fique sem produto na hora errada.</p>
+      <div class="module-card mc-otica reveal">
+        <div class="module-badge">Ótica</div>
+        <h3>Sistema para Óticas</h3>
+        <p>Gestão de OS de lentes, receitas médicas dos clientes e controle de pedidos com laboratórios.</p>
+        <ul class="module-list">
+          <li><i class="fas fa-check"></i> Cadastro de receitas com dados de grau</li>
+          <li><i class="fas fa-check"></i> Histórico de compras por cliente</li>
+          <li><i class="fas fa-check"></i> OS de lentes com status de produção</li>
+          <li><i class="fas fa-check"></i> Controle de armações e acessórios</li>
+          <li><i class="fas fa-check"></i> Relatórios de pedidos em aberto</li>
+        </ul>
       </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Relatórios e Dashboard</h3>
-        <p>Visualize vendas do dia, semana e mês. Saiba quais produtos mais vendem e tome decisões com dados reais.</p>
+      <div class="module-card mc-delivery reveal">
+        <div class="module-badge">Delivery & Food</div>
+        <h3>Delivery e Comanda</h3>
+        <p>Gerencie mesas, comandas, delivery e integração com iFood em uma operação unificada.</p>
+        <ul class="module-list">
+          <li><i class="fas fa-check"></i> Cardápio digital com QR Code</li>
+          <li><i class="fas fa-check"></i> Controle de mesas e comandas</li>
+          <li><i class="fas fa-check"></i> Painel de cozinha em tempo real</li>
+          <li><i class="fas fa-check"></i> Integração com iFood</li>
+          <li><i class="fas fa-check"></i> Gestão de entregadores</li>
+        </ul>
       </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-users"></i></div>
-        <h3>Gestão de Clientes</h3>
-        <p>Cadastro completo com histórico de compras, controle de fiado e programa de fidelidade integrado.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
-        <h3>Múltiplas Formas de Pagamento</h3>
-        <p>Dinheiro, cartão, PIX, fiado ou parcelado. Controle total de recebimentos sem complicação.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-robot"></i></div>
-        <h3>Inteligência Artificial</h3>
-        <p>IA integrada para sugestões de reposição, análise de tendências e respostas automáticas para dúvidas do sistema.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-print"></i></div>
-        <h3>Impressão de Cupom</h3>
-        <p>Emissão de cupom não fiscal e comprovante de venda. Compatível com as principais impressoras térmicas do mercado.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-cloud"></i></div>
-        <h3>Backup em Nuvem</h3>
-        <p>Seus dados salvos automaticamente na nuvem. Acesse históricos e relatórios de qualquer lugar, a qualquer hora.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
-        <h3>Atualizações Gratuitas</h3>
-        <p>Novas funcionalidades entregues automaticamente sem custo adicional. Seu sistema sempre evolui com você.</p>
+      <div class="module-card mc-fiscal reveal">
+        <div class="module-badge">Fiscal</div>
+        <h3>Emissão de NFC-e</h3>
+        <p>Nota fiscal de consumidor eletrônica integrada ao PDV, com transmissão direta para a SEFAZ.</p>
+        <ul class="module-list">
+          <li><i class="fas fa-check"></i> Emissão de NFC-e na finalização da venda</li>
+          <li><i class="fas fa-check"></i> Transmissão automática para SEFAZ</li>
+          <li><i class="fas fa-check"></i> QR Code na nota fiscal</li>
+          <li><i class="fas fa-check"></i> Certificado digital A1 integrado</li>
+          <li><i class="fas fa-check"></i> Cancelamento e inutilização de notas</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -628,50 +382,29 @@
           <div class="demo-dot" style="background:#ff5f57"></div>
           <div class="demo-dot" style="background:#febc2e"></div>
           <div class="demo-dot" style="background:#28c840"></div>
-          <span style="font-size:0.7rem;color:var(--muted);margin-left:10px;">NexusPDV — Dashboard</span>
+          <span style="font-size:.7rem;color:var(--muted);margin-left:10px;">NexusPDV — Dashboard</span>
         </div>
         <div class="demo-body">
           <div class="demo-metric">
-            <div class="metric-box">
-              <div class="label">Vendas hoje</div>
-              <div class="value" style="color:var(--verde);">R$ 1.847</div>
-            </div>
-            <div class="metric-box">
-              <div class="label">Pedidos</div>
-              <div class="value" style="color:var(--azul2);">34</div>
-            </div>
-            <div class="metric-box">
-              <div class="label">Ticket médio</div>
-              <div class="value" style="color:var(--ciano);">R$ 54,30</div>
-            </div>
-            <div class="metric-box">
-              <div class="label">Estoque baixo</div>
-              <div class="value" style="color:#f59e0b;">3 itens</div>
-            </div>
+            <div class="metric-box"><div class="label">Vendas hoje</div><div class="value" style="color:var(--verde)">R$ 1.847</div></div>
+            <div class="metric-box"><div class="label">Pedidos</div><div class="value" style="color:var(--lilas)">34</div></div>
+            <div class="metric-box"><div class="label">Ticket médio</div><div class="value" style="color:var(--ciano)">R$ 54,30</div></div>
+            <div class="metric-box"><div class="label">OS em aberto</div><div class="value" style="color:#f59e0b">7</div></div>
           </div>
           <div style="margin-top:12px;">
             <div class="demo-row">
-              <div class="demo-row-icon" style="background:rgba(16,185,129,0.1);color:var(--verde)"><i class="fas fa-arrow-up"></i></div>
-              <div class="demo-row-text">
-                <div class="demo-row-title">Venda #1042</div>
-                <div class="demo-row-sub">Agora mesmo · PIX</div>
-              </div>
+              <div class="demo-row-icon" style="background:rgba(16,185,129,.1);color:var(--verde)"><i class="fas fa-arrow-up"></i></div>
+              <div class="demo-row-text"><div class="demo-row-title">Venda #1042</div><div class="demo-row-sub">Agora mesmo · PIX</div></div>
               <div class="demo-row-val" style="color:var(--verde)">+R$ 89,90</div>
             </div>
             <div class="demo-row">
-              <div class="demo-row-icon" style="background:rgba(37,99,235,0.1);color:var(--azul2)"><i class="fas fa-shopping-cart"></i></div>
-              <div class="demo-row-text">
-                <div class="demo-row-title">Venda #1041</div>
-                <div class="demo-row-sub">2 min · Cartão</div>
-              </div>
-              <div class="demo-row-val" style="color:var(--azul2)">+R$ 142,00</div>
+              <div class="demo-row-icon" style="background:rgba(124,58,237,.1);color:var(--lilas)"><i class="fas fa-tools"></i></div>
+              <div class="demo-row-text"><div class="demo-row-title">OS #204 — Honda Civic</div><div class="demo-row-sub">Em serviço · Troca de óleo</div></div>
+              <div class="demo-row-val" style="color:var(--lilas)">Aberta</div>
             </div>
             <div class="demo-row">
-              <div class="demo-row-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-exclamation-triangle"></i></div>
-              <div class="demo-row-text">
-                <div class="demo-row-title">Estoque baixo</div>
-                <div class="demo-row-sub">Coca-Cola 2L · 3 un.</div>
-              </div>
+              <div class="demo-row-icon" style="background:rgba(245,158,11,.1);color:#f59e0b"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="demo-row-text"><div class="demo-row-title">Estoque baixo</div><div class="demo-row-sub">Filtro de óleo · 2 un.</div></div>
               <div class="demo-row-val" style="color:#f59e0b">Repor</div>
             </div>
           </div>
@@ -680,12 +413,12 @@
       <div class="demo-info reveal">
         <p class="section-tag">Painel Inteligente</p>
         <h2>Controle total na palma da sua mão</h2>
-        <p>Dashboard completo com tudo que acontece no seu negócio em tempo real. Vendas, estoque, alertas e muito mais em uma única tela.</p>
+        <p>Dashboard completo com tudo que acontece no seu negócio em tempo real. Vendas, ordens de serviço, alertas e muito mais em uma única tela.</p>
         <ul class="demo-list">
           <li><i class="fas fa-check-circle"></i> Visualize vendas do dia em tempo real</li>
           <li><i class="fas fa-check-circle"></i> Alertas automáticos de estoque baixo</li>
           <li><i class="fas fa-check-circle"></i> Histórico completo de todas as transações</li>
-          <li><i class="fas fa-check-circle"></i> Relatórios exportáveis em PDF e Excel</li>
+          <li><i class="fas fa-check-circle"></i> Relatórios exportáveis em PDF</li>
           <li><i class="fas fa-check-circle"></i> Acesso pelo computador — desktop nativo</li>
         </ul>
       </div>
@@ -693,106 +426,103 @@
   </div>
 </section>
 
-<!-- PLANO -->
-<section id="plano">
+<!-- CONTATO / PROPOSTA -->
+<section class="contact-section" id="contato">
   <div class="container">
-    <div class="reveal" style="text-align:center">
-      <p class="section-tag">Plano</p>
-      <h2 class="section-title">Simples. Completo. Sem surpresas.</h2>
-      <p class="section-sub" style="margin: 0 auto;">Um único plano com tudo incluído. Sem taxas ocultas, sem limite de uso.</p>
-    </div>
-    <div class="pricing-card reveal">
-      <div class="pricing-badge">MAIS POPULAR</div>
-      <div class="pricing-name">NexusPDV Completo</div>
-      <div class="pricing-price">
-        R$ 269<span>,90/mês</span>
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <p class="section-tag">Proposta Personalizada</p>
+        <h2>Solicite uma proposta para o seu negócio</h2>
+        <p>Cada negócio tem necessidades únicas. Entre em contato e receba uma proposta personalizada com os módulos certos para a sua operação.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background:rgba(37,211,102,.1);color:#25d366"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-item-text"><strong>WhatsApp direto</strong><span>Resposta em minutos · Atendimento humanizado</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background:rgba(124,58,237,.1);color:var(--lilas)"><i class="fas fa-clock"></i></div>
+            <div class="contact-item-text"><strong>Ativação em até 24h</strong><span>Após confirmação · Treinamento incluído</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background:rgba(6,182,212,.1);color:var(--ciano)"><i class="fas fa-shield-alt"></i></div>
+            <div class="contact-item-text"><strong>Sem contrato de fidelidade</strong><span>Cancele quando quiser · Sem multa</span></div>
+          </div>
+        </div>
       </div>
-      <div class="pricing-per">Cobrado mensalmente · Cancele quando quiser</div>
-      <hr class="pricing-divider">
-      <ul class="pricing-features">
-        <li><i class="fas fa-check-circle"></i> Sistema PDV completo para desktop</li>
-        <li><i class="fas fa-check-circle"></i> Controle de estoque ilimitado</li>
-        <li><i class="fas fa-check-circle"></i> Gestão de clientes e fiado</li>
-        <li><i class="fas fa-check-circle"></i> Relatórios e dashboard em tempo real</li>
-        <li><i class="fas fa-check-circle"></i> Backup automático em nuvem</li>
-        <li><i class="fas fa-check-circle"></i> Impressão de cupom não fiscal</li>
-        <li><i class="fas fa-check-circle"></i> <strong>Suporte humanizado via WhatsApp</strong></li>
-        <li><i class="fas fa-check-circle"></i> <strong>IA integrada para análises e dúvidas</strong></li>
-        <li><i class="fas fa-check-circle"></i> <strong>Todas as atualizações futuras incluídas</strong></li>
-      </ul>
-      <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20contratar%20o%20NexusPDV%20por%20R$%20269,90/mês." target="_blank" class="btn-contratar">
-        <i class="fab fa-whatsapp"></i> &nbsp;Contratar pelo WhatsApp
-      </a>
-      <p class="pricing-note">Ativação em até 24h após o pagamento</p>
+      <div class="contact-form-box reveal">
+        <h3>Fale com um especialista</h3>
+        <p>Preencha e entraremos em contato pelo WhatsApp em minutos.</p>
+        <form id="contactForm" onsubmit="enviarWpp(event)">
+          <div class="form-group">
+            <label>Seu nome</label>
+            <input type="text" id="f_nome" placeholder="João Silva" required>
+          </div>
+          <div class="form-group">
+            <label>Segmento do negócio</label>
+            <select id="f_seg" required>
+              <option value="">Selecione...</option>
+              <option>Varejo / Loja</option>
+              <option>Restaurante / Lanchonete</option>
+              <option>Pizzaria / Delivery</option>
+              <option>Salão de Beleza</option>
+              <option>Oficina Mecânica</option>
+              <option>Ótica</option>
+              <option>Farmácia</option>
+              <option>Pet Shop</option>
+              <option>Padaria / Confeitaria</option>
+              <option>Bar / Distribuidora</option>
+              <option>Hortifruti / Mercado</option>
+              <option>Açougue / Peixaria</option>
+              <option>Eletrônicos / Assistência</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Cidade / Estado</label>
+            <input type="text" id="f_cidade" placeholder="Ex: João Pessoa / PB">
+          </div>
+          <div class="form-group">
+            <label>Mensagem (opcional)</label>
+            <textarea id="f_msg" placeholder="Conte um pouco sobre o seu negócio..."></textarea>
+          </div>
+          <button type="submit" class="btn-enviar"><i class="fab fa-whatsapp"></i> &nbsp;Enviar pelo WhatsApp</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- SUPORTE -->
-<section id="suporte" style="background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+<section id="suporte">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <p class="section-tag">Suporte</p>
       <h2 class="section-title">Você nunca fica sozinho</h2>
-      <p class="section-sub" style="margin: 0 auto;">Suporte humanizado e IA disponíveis para resolver qualquer dúvida ou problema rapidamente.</p>
+      <p class="section-sub" style="margin:0 auto;">Suporte humanizado e IA disponíveis para resolver qualquer dúvida rapidamente.</p>
     </div>
     <div class="support-grid">
-      <div class="support-card reveal">
-        <i class="fab fa-whatsapp"></i>
-        <h3>WhatsApp Direto</h3>
-        <p>Fale com nossa equipe diretamente pelo WhatsApp. Resposta rápida e atendimento humanizado sempre.</p>
-      </div>
-      <div class="support-card reveal">
-        <i class="fas fa-robot"></i>
-        <h3>IA Integrada</h3>
-        <p>Assistente de IA dentro do sistema para responder dúvidas, sugerir ações e ajudar na operação diária.</p>
-      </div>
-      <div class="support-card reveal">
-        <i class="fas fa-tools"></i>
-        <h3>Atualizações Contínuas</h3>
-        <p>Melhorias e novas funcionalidades entregues regularmente com base no feedback dos clientes.</p>
-      </div>
-      <div class="support-card reveal">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>Treinamento Incluso</h3>
-        <p>Onboarding completo para você e sua equipe aprenderem a usar o sistema desde o primeiro dia.</p>
-      </div>
+      <div class="support-card reveal"><i class="fab fa-whatsapp"></i><h3>WhatsApp Direto</h3><p>Fale com nossa equipe diretamente. Resposta rápida e atendimento humanizado sempre.</p></div>
+      <div class="support-card reveal"><i class="fas fa-robot"></i><h3>IA Integrada</h3><p>Assistente de IA dentro do sistema para responder dúvidas e ajudar na operação diária.</p></div>
+      <div class="support-card reveal"><i class="fas fa-tools"></i><h3>Atualizações Contínuas</h3><p>Melhorias e novas funcionalidades entregues regularmente com base no feedback dos clientes.</p></div>
+      <div class="support-card reveal"><i class="fas fa-graduation-cap"></i><h3>Treinamento Incluso</h3><p>Onboarding completo para você e sua equipe aprenderem a usar o sistema desde o primeiro dia.</p></div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" style="background:var(--bg2);border-top:1px solid var(--border);">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <p class="section-tag">Dúvidas Frequentes</p>
       <h2 class="section-title">Perguntas & Respostas</h2>
     </div>
     <div class="faq-list reveal">
-      <div class="faq-item">
-        <div class="faq-q">O sistema funciona sem internet? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">Sim! O NexusPDV funciona localmente no seu computador. A internet é necessária apenas para sincronização do backup em nuvem e para funcionalidades com IA.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Para quais sistemas operacionais funciona? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">O NexusPDV é compatível com Windows 10 e Windows 11. Versões para outras plataformas estão no roadmap de atualizações futuras.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Posso usar em mais de um computador? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">O plano cobre uma instalação. Para múltiplos caixas ou filiais, entre em contato pelo WhatsApp para um plano personalizado.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Como é feita a cobrança? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">A cobrança é mensal via PIX ou cartão. Você recebe o aviso de renovação antecipadamente e pode cancelar a qualquer momento sem multa.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Meus dados ficam seguros? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">Sim. Todos os dados são armazenados localmente no seu computador e sincronizados com backup criptografado na nuvem. Somente você tem acesso.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Quanto tempo leva para ativar o sistema? <i class="fas fa-plus"></i></div>
-        <div class="faq-a">Após confirmação do pagamento, o sistema é ativado e enviado em até 24 horas com instruções de instalação e treinamento incluído.</div>
-      </div>
+      <div class="faq-item"><div class="faq-q">O sistema funciona sem internet? <i class="fas fa-plus"></i></div><div class="faq-a">Sim! O NexusPDV funciona localmente no seu computador. A internet é necessária apenas para sincronização do backup em nuvem e para funcionalidades com IA.</div></div>
+      <div class="faq-item"><div class="faq-q">Para quais sistemas operacionais funciona? <i class="fas fa-plus"></i></div><div class="faq-a">O NexusPDV é compatível com Windows 10 e Windows 11 (64-bit). O instalador já inclui o Java Runtime — não precisa instalar nada antes.</div></div>
+      <div class="faq-item"><div class="faq-q">Posso usar em mais de um computador? <i class="fas fa-plus"></i></div><div class="faq-a">O plano padrão cobre uma instalação. Para múltiplos caixas ou filiais, entre em contato pelo WhatsApp para uma proposta personalizada.</div></div>
+      <div class="faq-item"><div class="faq-q">Como funciona o módulo de oficina mecânica? <i class="fas fa-plus"></i></div><div class="faq-a">O módulo de oficina inclui ordens de serviço completas, cadastro de veículos por placa com consulta automática, controle de peças, checklist de vistoria, laudo de entrada, gestão de técnicos e muito mais.</div></div>
+      <div class="faq-item"><div class="faq-q">O sistema emite nota fiscal NFC-e? <i class="fas fa-plus"></i></div><div class="faq-a">Sim! O NexusPDV possui módulo fiscal completo para emissão de NFC-e com transmissão direta para a SEFAZ, QR Code e suporte a certificado digital A1.</div></div>
+      <div class="faq-item"><div class="faq-q">Quanto tempo leva para ativar o sistema? <i class="fas fa-plus"></i></div><div class="faq-a">Após o contato e confirmação, o sistema é instalado e configurado em até 24 horas com treinamento incluído para você e sua equipe.</div></div>
     </div>
   </div>
 </section>
@@ -802,9 +532,9 @@
   <div class="container">
     <div class="reveal">
       <p class="section-tag">Pronto para começar?</p>
-      <h2>Modernize sua gestão <span style="background:linear-gradient(135deg,var(--azul2),var(--ciano));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">hoje mesmo</span></h2>
-      <p>Entre em contato agora e tenha seu PDV funcionando em menos de 24 horas.</p>
-      <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20contratar%20o%20NexusPDV%20por%20R$%20269,90/mês." target="_blank" class="btn-primary" style="margin: 0 auto; display:inline-flex;">
+      <h2>Modernize sua gestão <span style="background:linear-gradient(135deg,var(--lilas),var(--ciano));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">hoje mesmo</span></h2>
+      <p>Fale com um especialista e tenha seu PDV funcionando em menos de 24 horas.</p>
+      <a href="https://wa.me/5583998632702?text=Olá!%20Quero%20conhecer%20o%20NexusPDV." target="_blank" class="btn-primary" style="margin:0 auto;display:inline-flex;">
         <i class="fab fa-whatsapp"></i> Falar no WhatsApp
       </a>
     </div>
@@ -814,10 +544,11 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-logo">Nexus<span style="color:var(--azul2)">PDV</span></div>
+    <div class="footer-logo">Nexus<span style="color:var(--lilas)">PDV</span></div>
     <div class="footer-links">
       <a href="#funcionalidades">Funcionalidades</a>
-      <a href="#plano">Plano</a>
+      <a href="#segmentos">Segmentos</a>
+      <a href="#modulos">Módulos</a>
       <a href="#suporte">Suporte</a>
       <a href="#faq">FAQ</a>
       <a href="https://wa.me/5583998632702" target="_blank">WhatsApp</a>
@@ -826,7 +557,6 @@
   </div>
 </footer>
 
-<!-- WHATSAPP FLUTUANTE -->
 <a href="https://wa.me/5583998632702?text=Olá!%20Tenho%20interesse%20no%20NexusPDV." target="_blank" class="whatsapp-float">
   <i class="fab fa-whatsapp"></i>
 </a>
@@ -834,18 +564,12 @@
 <script>
   // Partículas
   const container = document.getElementById('particles');
-  const colors = ['#2563eb','#3b82f6','#06b6d4','#7c3aed','#10b981'];
-  for (let i = 0; i < 30; i++) {
+  const colors = ['#7c3aed','#9333ea','#a78bfa','#06b6d4','#10b981'];
+  for (let i = 0; i < 35; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
     const size = Math.random() * 4 + 1;
-    p.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${Math.random()*100}%;
-      background:${colors[Math.floor(Math.random()*colors.length)]};
-      animation-duration:${Math.random()*15+10}s;
-      animation-delay:${Math.random()*10}s;
-    `;
+    p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s;`;
     container.appendChild(p);
   }
 
@@ -857,7 +581,7 @@
   // Reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // FAQ
@@ -869,6 +593,20 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // Form → WhatsApp
+  function enviarWpp(e) {
+    e.preventDefault();
+    const nome   = document.getElementById('f_nome').value.trim();
+    const seg    = document.getElementById('f_seg').value;
+    const cidade = document.getElementById('f_cidade').value.trim();
+    const msg    = document.getElementById('f_msg').value.trim();
+    let texto = `Olá! Meu nome é *${nome}* e tenho interesse no NexusPDV.%0A`;
+    texto += `Segmento: *${seg}*%0A`;
+    if (cidade) texto += `Cidade: *${cidade}*%0A`;
+    if (msg)    texto += `Mensagem: ${msg}`;
+    window.open(`https://wa.me/5583998632702?text=${texto}`, '_blank');
+  }
 </script>
 </body>
 </html>
