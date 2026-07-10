@@ -56,6 +56,15 @@
   }
   </script>
 
+  <!-- Google tag (GA4) — propriedade "NexusPDV Site" -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-STNHSD5F3Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-STNHSD5F3Q');
+  </script>
+
   <style>
     :root{
       --p:#7c3aed;--p2:#6d28d9;--p3:#5b21b6;
@@ -646,6 +655,15 @@
   }), {threshold:.08});
   document.querySelectorAll('.r,.rl,.rr').forEach(el => obs.observe(el));
 
+  // Rastreamento de conversão: qualquer clique num link do WhatsApp conta como lead.
+  // Delegado no document pra pegar todos os botões/links wa.me da página de uma vez.
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href*="wa.me"]');
+    if (link && typeof gtag === 'function') {
+      gtag('event', 'whatsapp_click', { event_category: 'contato', event_label: link.href });
+    }
+  });
+
   document.querySelectorAll('.fqq').forEach(q => q.addEventListener('click', () => {
     const i = q.parentElement, o = i.classList.contains('open');
     document.querySelectorAll('.fqi').forEach(x => x.classList.remove('open'));
@@ -661,6 +679,11 @@
     let t=`Olá! Meu nome é *${n}* e tenho interesse no NexusPDV.%0ASegmento: *${s}*`;
     if(c) t+=`%0ACidade: *${c}*`;
     if(m) t+=`%0AMensagem: ${m}`;
+    // Lead qualificado (preencheu o formulário, não só clicou num botão) — evento
+    // separado do whatsapp_click genérico pra poder medir os dois no Google Ads/GA4.
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { event_category: 'formulario', event_label: s });
+    }
     window.open(`https://wa.me/5583991742557?text=${t}`,'_blank');
   }
 </script>
